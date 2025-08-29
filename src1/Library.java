@@ -59,12 +59,17 @@ public class Library {
                         break;
 
                     case 2: // 추가
+                        System.out.print("추가할 도서ID: ");
+                        int addId = Integer.parseInt(scanner.nextLine());  // 숫자도 nextLine으로 받고 파싱
+
                         System.out.print("추가할 도서명: ");
-                        String insertName = scanner.nextLine();
+                        String insertName = scanner.nextLine();  // 띄어쓰기 포함 전체 라인 읽기
+
                         System.out.print("수량 입력: ");
-                        int insertCount = scanner.nextInt();
-                        scanner.nextLine();
-                        insertBook(conn, insertName, insertCount);
+                        int insertCount = Integer.parseInt(scanner.nextLine());  // 숫자도 nextLine으로 받고 파싱
+
+                        insertBook(conn, addId, insertName, insertCount);  // addId도 전달해야겠죠
+
                         break;
 
                     case 3: // 삭제
@@ -126,11 +131,12 @@ public class Library {
         }
     }
 
-    private static void insertBook(Connection conn, String name, int count) throws SQLException {
-        String sql = "INSERT INTO books (bookName, bookcnt) VALUES (?, ?)";
+    private static void insertBook(Connection conn, int id, String name, int count) throws SQLException {
+        String sql = "INSERT INTO books (bookId, bookName, bookcnt) VALUES (?, ?, ?)";
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, name);
-            pstmt.setInt(2, count);
+            pstmt.setInt(1, id);
+            pstmt.setString(2, name);
+            pstmt.setInt(3, count);
             int rows = pstmt.executeUpdate();
             System.out.println(rows + "건이 추가되었습니다.");
         }
