@@ -4,13 +4,13 @@ import java.sql.*;
 import java.util.Date;
 import java.util.Properties;
 
-public class MysqlDBConnEnv {
+public class Library {
     public static void main(String[] args) {
         Properties props = new Properties();
 
         try {
             // 1. 환경파일(db.properties) 로드
-            FileInputStream fis = new FileInputStream("src/db.properties");
+            FileInputStream fis = new FileInputStream("src1/db.properties");
             props.load(fis);
 
             String url = props.getProperty("db.url");
