@@ -15,7 +15,7 @@ public class Library {
         // 예시 휴일 추가 (기념일)
         anniversary.addHoliday(LocalDate.of(2025, 9, 1)); // 9월 1일 휴일 예시
 
-        LocalDate today = LocalDate.of(20225, 9, 2);
+        LocalDate today = LocalDate.of(20225, 9, 3);
 
         // 오늘이 휴일인지 체크
         if (weekend.isHoliday(today) || anniversary.isHoliday(today)) {
