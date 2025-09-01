@@ -17,10 +17,8 @@ MySQL 데이터베이스와 연동된 정보 처리
 프로젝트 구조
 src/
 │
-├── Library.java          // DB와 직접 소통 (도서 등록, 삭제, 조회, 휴일 확인 등)
-├── HolidayPolicy.java    // 인터페이스 or 추상 클래스 (휴일 지정용)
-├── WeekendHoliday.java   // 예: 주말을 휴일로 지정하는 구현 클래스
-├── CustomHoliday.java    // 사용자 정의 휴일 설정 클래스
-├── Main.java             // 프로그램 시작점 (테스트 및 CLI 실행)
-└── db.properties         // DB 연결 정보
+├── Library.java          // 프로그램 시작점 & DB와 직접 소통 (도서 등록, 삭제, 조회 등)
+├── Holiday.java    // 인터페이스 (휴일을 확인하는 isHoliday 메소드 보유)
+├── Weekend.java   // 인터페이스에서 상속받는 isHoliday를 구현(주말만 확인하도록)
+└── Anniversary.java   // 인터페이스에서 상속받는 isHoliday를 구현(속성으로 공휴일을 저장하는 리스트를 가지고, 공휴일 추가 기능)
 
